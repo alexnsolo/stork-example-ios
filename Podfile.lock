@@ -1,0 +1,18 @@
+PODS:
+  - SSZipArchive (0.3.1)
+  - Stork (0.0.1):
+    - SSZipArchive (~> 0.3.1)
+
+DEPENDENCIES:
+  - Stork (from `https://github.com/StorkHQ/stork-ios.git`, branch `stork-readme`)
+
+EXTERNAL SOURCES:
+  Stork:
+    :branch: stork-readme
+    :git: https://github.com/StorkHQ/stork-ios.git
+
+SPEC CHECKSUMS:
+  SSZipArchive: 6dc0ea3fe4b55574bee23c9f01d7c0f8437d59ef
+  Stork: 2c9aaf9d5e3c79f64c0a7eedf595caa4e10f4bb6
+
+COCOAPODS: 0.33.1
