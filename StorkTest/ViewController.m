@@ -9,12 +9,12 @@
 #import "ViewController.h"
 
 #import <Stork/Stork.h>
-#import <Stork/STKLoaderViewController.h>
+#import <Stork/StorkLoaderViewController.h>
 
 @interface ViewController ()
 
 @property (nonatomic, strong) UIWebView *webView;
-@property (nonatomic, strong) STKLoaderViewController *stkLoaderViewController;
+@property (nonatomic, strong) StorkLoaderViewController *storkLoaderViewController;
 
 @end
 
@@ -28,15 +28,14 @@
     [self.view addSubview:self.webView];
     
     // Initialize Stork - configuring bond options
-    [[Stork sharedClient] prepareBondWithProjectToken:@"03d413312404f36f6b5e8b4defd69b8c" withVersion:@"0.0.0"];
-    [[Stork sharedClient] prepareBondWithWebView:self.webView];
+    [[Stork sharedClient] bindWithProjectToken:@"03d413312404f36f6b5e8b4defd69b8c" withVersion:@"0.0.0"];
+    [[Stork sharedClient] bindWithWebView:self.webView];
     
     // OPTIONAL - Use this fancy view controller to show loading status
-    self.stkLoaderViewController = [STKLoaderViewController addToViewController:self withStork:[Stork sharedClient]];
-    [[Stork sharedClient] setDelegate:self.stkLoaderViewController];
+    self.storkLoaderViewController = [StorkLoaderViewController addToViewController:self withStork:[Stork sharedClient]];
     
-    // Finalize the Stork bond
-    [[Stork sharedClient] bond];
+    // Start Stork
+    [[Stork sharedClient] start];
     
 }
 
