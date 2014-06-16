@@ -27,15 +27,15 @@
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.webView];
     
-    // Initialize Stork - configuring bond options
-    [[Stork sharedClient] bindWithProjectToken:@"03d413312404f36f6b5e8b4defd69b8c" withVersion:@"0.0.0"];
-    [[Stork sharedClient] bindWithWebView:self.webView];
+    // Prepare delivery - configure Stork
+    [[Stork sharedClient] prepareDeliveryWithProjectToken:@"03d413312404f36f6b5e8b4defd69b8c" withVersion:@"0.0.0"];
+    [[Stork sharedClient] prepareDeliveryWithWebView:self.webView];
     
     // OPTIONAL - Use this fancy view controller to show loading status
     self.storkLoaderViewController = [StorkLoaderViewController addToViewController:self withStork:[Stork sharedClient]];
     
-    // Start Stork
-    [[Stork sharedClient] start];
+    // Start Stork delivery - Stork now handles downloads and updates
+    [[Stork sharedClient] deliver];
     
 }
 
